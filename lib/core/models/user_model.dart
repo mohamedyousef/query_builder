@@ -16,7 +16,7 @@ class UserModel implements BaseQueryDataType {
 
   UserModel(
       {required this.fullName,
-        required this.id,
+      required this.id,
       required this.email,
       required this.firstName,
       required this.lastName,
@@ -24,15 +24,14 @@ class UserModel implements BaseQueryDataType {
       required this.genderType,
       required this.meta});
 
-  UserModel copyWith({
-    String? fullName,
-    String? email,
-    String? firstName,
-    String? lastName,
-    int? age,
-    GenderType? genderType,
-    int? id
-  }) {
+  UserModel copyWith(
+      {String? fullName,
+      String? email,
+      String? firstName,
+      String? lastName,
+      int? age,
+      GenderType? genderType,
+      int? id}) {
     return UserModel(
       meta: null,
       fullName: fullName ?? this.fullName,
@@ -40,19 +39,22 @@ class UserModel implements BaseQueryDataType {
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
       age: age ?? this.age,
-      genderType: genderType ?? this.genderType, id:  id?? this.id,
+      genderType: genderType ?? this.genderType,
+      id: id ?? this.id,
     );
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
+    print(map['age']);
+
     return UserModel(
       fullName: map['full_name'] ?? '',
       email: map['email'] ?? '',
       firstName: map['first_name'] ?? '',
       meta: map,
       lastName: map['last_name'] ?? '',
-      age: map['age']?.toInt() ?? 0,
-      id:map['age']?.toInt() ?? 0,
+      age: map['age']??0,
+      id: map['id']??0,
       genderType:
           GenderType.values.byName(map['gender'].toString().toLowerCase()),
     );
