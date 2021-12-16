@@ -20,6 +20,7 @@ This project is a starting point for a Flutter application.
 ![alt tag](./main_screen.png)
 
 
-State Management : 
-Bloc 
- 
+state management: Bloc   
+
+Backend 
+fake api  
