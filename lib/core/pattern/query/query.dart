@@ -45,6 +45,8 @@ class Query<T extends BaseQueryDataType> {
       // final secondFilter = filters![i + 1];
       if (i == 0) {
         final check = filter.compare(userModel.meta![filter.field.key]);
+        if(check)
+        print(check);
         response = check;
       } else if (join == QueryJoinType.and) {
         response =

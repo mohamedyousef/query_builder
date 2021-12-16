@@ -16,13 +16,13 @@ class Filter {
   bool compare(dynamic elementSearch) {
     switch (operatorType) {
       case OperatorType.equal:
-        return int.parse(elementSearch.toString()) == searchValue;
+        return elementSearch == int.parse(searchValue.toString());
       case OperatorType.notEqual:
-        return int.parse(elementSearch.toString()) != searchValue;
+        return int.parse(elementSearch.toString()) != int.parse(searchValue.toString());
       case OperatorType.greaterThan:
-        return int.parse(elementSearch.toString()) < searchValue;
+        return int.parse(elementSearch.toString()) < int.parse(searchValue.toString());
       case OperatorType.lessThan:
-        return int.parse(elementSearch.toString()) > searchValue;
+        return int.parse(elementSearch.toString()) > int.parse(searchValue.toString());
       case OperatorType.startWith:
         return elementSearch.toString().startsWith(searchValue);
       case OperatorType.endWith:

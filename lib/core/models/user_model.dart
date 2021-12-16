@@ -45,8 +45,6 @@ class UserModel implements BaseQueryDataType {
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
-    print(map['age']);
-
     return UserModel(
       fullName: map['full_name'] ?? '',
       email: map['email'] ?? '',
