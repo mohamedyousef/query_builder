@@ -33,6 +33,7 @@ class RowUserWidget extends StatelessWidget {
               child: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: '${(gender.contains("female"))?images[1]:images[0]}',
+                fit: BoxFit.cover,
           ),
             ),
               const SizedBox(width: 25,),
@@ -56,6 +57,6 @@ class RowUserWidget extends StatelessWidget {
 
 const images = [
   "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
-   "https://randomuser.me/api/portraits/women/21.jpg",
+   "https://image.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg",
  
 ];
