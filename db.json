@@ -1,0 +1,84 @@
+{
+    "customer_note":"", 
+    "date_created":"timestamp" , 
+    "delivery_status":"unknown", 
+    "driverId":"id",
+    "line_items":[
+        {
+            "isConfirmed":false,
+            "items":[
+                {
+                    "featured_image":"",
+                    "name":"",
+                    "quantity":2,
+                    "total":"56",
+                    "total_tax":"60",
+                    "product_data":{"images":["https://img.pixelz.com/blog/using-product-images-on-ecommerce-site/F_Purse1_drop.jpg?w=1000",""]}
+                }
+            ],
+            "packageId":"1"
+        }
+    ],
+    "billing":{
+"address_1":"",
+"address_2":"",
+"city":"",
+"country":"",
+"company":"",
+"phone":"",
+"first_name":"",
+"last_name":"", 
+"state":"",
+"postcode":""
+    },
+"payment_method_title":"card",
+"shipping_total":"19 string", 
+"total":"56", 
+"total_tax":"60",
+"status":"driver-assigned",
+"user_location":{
+    "address":"", 
+    "location":geopoint
+},
+"wcfm_store":[
+    {
+        "address":"",
+        "banner":"",
+        "image":"", 
+        "lat":double, 
+        "long":double, 
+        "rating":double, 
+        "website":"",
+        "email":"",
+        "name":"",
+        "phone":""
+    },
+     
+        {
+        "address":"",
+        "banner":"",
+        "image":"", 
+        "lat":double, 
+        "long":double, 
+        "rating":double, 
+        "website":"",
+        "email":"",
+        "name":"",
+        "phone":""
+    }
+]
+}
+
+
+
+delivery_status: 
+pending, 
+delivered, 
+unknown , 
+reject 
+
+payment_method_title:
+card,cash 
+
+
+status =  order status : 
