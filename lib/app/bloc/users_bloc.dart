@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:query_task/core/failures/failures.dart';
+import 'package:query_task/core/helper/apply_query.dart';
 import 'package:query_task/core/models/user_model.dart';
 import 'package:query_task/core/pattern/query/query_builder.dart';
 import 'package:query_task/core/useCases/users_use_cases.dart';
@@ -17,25 +19,28 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
   List<UserModel>users =[];
 
   UsersBloc(this.userUseCases) : super(const UsersState.initial()) {
-    on<UsersEvent>((event, emit) {
-      event.map(fetchUsers: (users) {
+    on<UsersEvent>((event, emit) async {
+      await event.map(fetchUsers: (users) async{
         emit(const UsersState.loading());
-        fetchUsers();
-      }, applyQuery: (value) {
-        final query = QueryBuilder<UserModel>(this.users);
+        await  fetchUsers(emit);
+      }, applyQuery: (value) async {
         emit(const UsersState.loading());
-        value.querires.forEach((element) {
-          element.map(
-              join: (join) => query.addJoin(join.queryJoinType),
-              query: (queryType) => query.addFilter(queryType.filter));
-        });
-        final users = query.build().get().toList();
-        emit(UsersState.data(users: users));
+        await applyQuery(value.querires,emit);
       });
     });
   }
 
-  fetchUsers() async {
+
+  applyQuery(List<QueryType>queries,Emitter<UsersState> emit)async{
+    final filteredUsers = await compute(applyQueryForCompute, {
+      "users":users,
+      "queries":queries
+    });
+
+    emit(UsersState.data(users: filteredUsers));
+  }
+
+  fetchUsers(Emitter<UsersState> emit) async {
     final response = await userUseCases.fetchUsers();
 
     response.fold(

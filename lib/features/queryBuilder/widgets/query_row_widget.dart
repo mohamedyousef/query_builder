@@ -280,6 +280,7 @@ class _QueryRowWidgetState extends State<QueryRowWidget> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: TextField(
+                              keyboardType:(_field!.isNumeric())?TextInputType.number:TextInputType.text,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   focusedBorder: InputBorder.none,

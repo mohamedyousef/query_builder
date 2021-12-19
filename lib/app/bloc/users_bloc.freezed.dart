@@ -109,12 +109,18 @@ class __$FetchUsersCopyWithImpl<$Res> extends _$UsersEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchUsers implements _FetchUsers {
+class _$_FetchUsers with DiagnosticableTreeMixin implements _FetchUsers {
   const _$_FetchUsers();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UsersEvent.fetchUsers()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'UsersEvent.fetchUsers'));
   }
 
   @override
@@ -226,15 +232,23 @@ class __$ApplyQueryCopyWithImpl<$Res> extends _$UsersEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ApplyQuery implements _ApplyQuery {
+class _$_ApplyQuery with DiagnosticableTreeMixin implements _ApplyQuery {
   const _$_ApplyQuery({required this.querires});
 
   @override
   final List<QueryType> querires;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UsersEvent.applyQuery(querires: $querires)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UsersEvent.applyQuery'))
+      ..add(DiagnosticsProperty('querires', querires));
   }
 
   @override
@@ -446,12 +460,20 @@ class __$InitialUsersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InitialUsersState implements _InitialUsersState {
+class _$_InitialUsersState
+    with DiagnosticableTreeMixin
+    implements _InitialUsersState {
   const _$_InitialUsersState();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UsersState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'UsersState.initial'));
   }
 
   @override
@@ -562,12 +584,18 @@ class __$LoadingUsersCopyWithImpl<$Res> extends _$UsersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadingUsers implements _LoadingUsers {
+class _$_LoadingUsers with DiagnosticableTreeMixin implements _LoadingUsers {
   const _$_LoadingUsers();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UsersState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'UsersState.loading'));
   }
 
   @override
@@ -691,15 +719,23 @@ class __$ErrorMessageCopyWithImpl<$Res> extends _$UsersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorMessage implements _ErrorMessage {
+class _$_ErrorMessage with DiagnosticableTreeMixin implements _ErrorMessage {
   const _$_ErrorMessage({required this.message});
 
   @override
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UsersState.error(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UsersState.error'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -836,15 +872,23 @@ class __$UsersStateCopyWithImpl<$Res> extends _$UsersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UsersState implements _UsersState {
+class _$_UsersState with DiagnosticableTreeMixin implements _UsersState {
   const _$_UsersState({required this.users});
 
   @override
   final List<UserModel> users;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UsersState.data(users: $users)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UsersState.data'))
+      ..add(DiagnosticsProperty('users', users));
   }
 
   @override
