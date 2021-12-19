@@ -49,8 +49,6 @@ class _QueryRowWidgetState extends State<QueryRowWidget> {
     super.initState();
     searchValueController = TextEditingController();
 
-    searchValueController.addListener(changeQueryListener);
-
     widget.queryType.map(join: (join) {
       _queryJoinType = join.queryJoinType;
       setState(() {});
@@ -190,6 +188,7 @@ class _QueryRowWidgetState extends State<QueryRowWidget> {
                                           searchValueController.text = "";
                                         }
                                       });
+                                      changeQueryListener();
                                     }),
                               ),
                               const SizedBox(
@@ -255,7 +254,6 @@ class _QueryRowWidgetState extends State<QueryRowWidget> {
                                       onChanged: (changedValue) {
                                         setState(() {
                                           _operatorType = changedValue;
-
                                           if (_field!.isGender()) {
                                             searchValueController.text =
                                                 (_operatorType ==
@@ -264,6 +262,7 @@ class _QueryRowWidgetState extends State<QueryRowWidget> {
                                                     : "male";
                                           }
                                         });
+                                        changeQueryListener();
                                       })),
                             ],
                           ),
@@ -280,6 +279,9 @@ class _QueryRowWidgetState extends State<QueryRowWidget> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: TextField(
+                              onChanged: (value){
+                                changeQueryListener();
+                              },
                               keyboardType:(_field!.isNumeric())?TextInputType.number:TextInputType.text,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,

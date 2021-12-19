@@ -41,7 +41,7 @@ class SearchResultScreen extends StatelessWidget {
                         ),
                     error: (error) => Container(),
                     data: (data) {
-                      return ListView.builder(
+                      return (data.users.isEmpty)?const Center(child: Text("no results"),):ListView.builder(
                         padding: const EdgeInsets.all(16),
                         itemBuilder: (context, index) {
                           return RowUserWidget(userModel: data.users[index]);
